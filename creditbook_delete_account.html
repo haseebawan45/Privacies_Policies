@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Account - CreditBook</title>
+    <style>
+        :root {
+            --primary-color: #d32f2f;
+            --text-color: #333;
+            --bg-color: #f9f9f9;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        .warning-box {
+            background-color: #fff3e0;
+            border-left: 5px solid #ff9800;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .instructions {
+            margin-bottom: 30px;
+        }
+
+        .contact-info {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #b71c1c;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.8em;
+            color: #777;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Request Account Deletion</h1>
+            <p>CreditBook App</p>
+        </header>
+
+        <div class="warning-box">
+            <strong>Warning:</strong> Deleting your account is permanent. All your data, including transaction history,
+            customers, and business profile, will be erased and cannot be recovered.
+        </div>
+
+        <div class="instructions">
+            <p>To delete your account, you can either verify instantly through the app or submit a request below if you
+                no longer have access to the app.</p>
+
+            <h3>Option 1: Delete via App</h3>
+            <ol>
+                <li>Open the CreditBook App.</li>
+                <li>Go to <strong>Settings</strong> > <strong>Profile</strong>.</li>
+                <li>Scroll down and tap <strong>Delete Account</strong>.</li>
+            </ol>
+
+            <h3>Option 2: Submit a Request</h3>
+            <p>Please provide the details associated with your account to initiate the deletion process.</p>
+        </div>
+
+        <form onsubmit="submitForm(event)">
+            <div class="form-group">
+                <label for="phone">Phone Number (Registered)</label>
+                <input type="text" id="phone" name="phone" placeholder="+92 3XX XXXXXXX" required>
+            </div>
+
+            <div class="form-group">
+                <label for="reason">Reason for Deletion (Optional)</label>
+                <textarea id="reason" name="reason" rows="3" placeholder="Tell us why you are leaving..."></textarea>
+            </div>
+
+            <button type="submit">Submit Deletion Request</button>
+        </form>
+
+        <div id="successMessage" style="display:none; color: green; text-align: center; margin-top: 20px;">
+            <p><strong>Request Submitted!</strong></p>
+            <p>We have received your request. Your account will be scheduled for deletion within 30 days. You may be
+                contacted for verification.</p>
+        </div>
+
+        <div class="contact-info" style="margin-top: 30px;">
+            <p>Need help? Contact Support at <a href="mailto:support@creditbook.pk">support@creditbook.pk</a></p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 CreditBook. All rights reserved.</p>
+        <p><a href="privacy_policy.html" style="color: #666;">Privacy Policy</a></p>
+    </footer>
+
+    <script>
+        function submitForm(e) {
+            e.preventDefault();
+            // Here you would typically send an API request
+            // For static page demo, just show success
+            document.querySelector('form').style.display = 'none';
+            document.querySelector('#successMessage').style.display = 'block';
+        }
+    </script>
+
+</body>
+
+</html>
